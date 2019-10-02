@@ -113,6 +113,7 @@ def find(first, last):
     G.add_node(last_id)
     while not nx.has_path(G, first_id, last_id):
         # find all "leaves" in this graph that we have not traversed
+        # https://stackoverflow.com/a/3462160
         leaves = list(set(G.nodes) - set(PROCESSED_PLAYER_IDS))
         for leaf in leaves:
             get_games_and_players(leaf, 10, 1)
